@@ -1,0 +1,7 @@
+fastapi
+uvicorn
+pylint
+bandit
+radon
+python-multipart
+openai

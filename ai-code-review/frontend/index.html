@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Code Review Agent</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>🔍 AI Code Review & Bug Detection Agent</h1>
+    </header>
+
+    <main>
+        <section id="upload-panel">
+            <div class="panel">
+                <h2>Upload Python File</h2>
+                <input type="file" id="file-input" accept=".py">
+                <button id="analyze-btn">Analyze Code</button>
+            </div>
+        </section>
+
+        <section id="loading" class="hidden">
+            <div class="spinner"></div>
+            <p>Analyzing... 🔍</p>
+        </section>
+
+        <section id="results" class="hidden">
+            <div id="scores">
+                <div class="score-card" id="security-card">
+                    <h3>🛡 Security</h3>
+                    <div class="score" id="security-score">0</div>
+                </div>
+                <div class="score-card" id="performance-card">
+                    <h3>⚡ Performance</h3>
+                    <div class="score" id="performance-score">0</div>
+                </div>
+                <div class="score-card" id="maintainability-card">
+                    <h3>📊 Maintainability</h3>
+                    <div class="score" id="maintainability-score">0</div>
+                </div>
+            </div>
+
+            <div id="tabs">
+                <button class="tab-btn active" data-tab="issues">Issues</button>
+                <button class="tab-btn" data-tab="suggestions">Suggestions</button>
+                <button class="tab-btn" data-tab="fixed-code">Fixed Code</button>
+                <button class="tab-btn" data-tab="tests">Unit Tests</button>
+                <button class="tab-btn" data-tab="comparison">Code Comparison</button>
+            </div>
+
+            <div id="tab-content">
+                <div class="tab-pane active" id="issues-pane">
+                    <h3>Detected Issues</h3>
+                    <ul id="issues-list"></ul>
+                </div>
+                <div class="tab-pane" id="suggestions-pane">
+                    <h3>AI-Powered Suggestions</h3>
+                    <p id="suggestions-text"></p>
+                </div>
+                <div class="tab-pane" id="fixed-code-pane">
+                    <h3>AI-Generated Fixed Code</h3>
+                    <div class="code-actions">
+                        <button id="copy-fixed-btn" class="action-btn">📋 Copy Fixed Code</button>
+                        <button id="download-fixed-btn" class="action-btn">💾 Download Fixed File</button>
+                    </div>
+                    <pre id="fixed-code-display"></pre>
+                </div>
+                <div class="tab-pane" id="tests-pane">
+                    <h3>Generated Unit Tests</h3>
+                    <pre id="tests-code"></pre>
+                </div>
+                <div class="tab-pane" id="comparison-pane">
+                    <h3>Original Code</h3>
+                    <pre id="original-code"></pre>
+                    <h3>Fixed Code</h3>
+                    <pre id="fixed-code-comparison"></pre>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
